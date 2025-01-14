@@ -1,7 +1,7 @@
 # MULTIBREAKATPOINT for AutoCAD 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![AutoCAD](https://img.shields.io/badge/AutoCAD-000000?style=flat&logo=autodesk&logoColor=white)
-![Last Commit](https://img.shields.io/badge/last%20commit-November%202024-brightgreen)
+![Last Commit](https://img.shields.io/badge/last%20commit-Gen%202025-brightgreen)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen)
 
 > Un'utility AutoCAD che estende il comando nativo `_BREAKATPOINT` per dividere linee in multipli segmenti usando linee di intersezione
