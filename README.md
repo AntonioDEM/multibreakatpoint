@@ -53,13 +53,6 @@ Questo si traduce in:
 
 Per il caricamento automatico, copia il file nella cartella di supporto di AutoCAD.
 
-## ⚡ Vantaggi nel Workflow
-
-- **Efficienza**: divide una linea in più punti con una singola esecuzione del comando
-- **Velocità**: riduce significativamente i tempi di esecuzione rispetto all'uso di comandi multipli
-- **Precisione**: supporto completo per snap ad intersezione e punti di riferimento
-- **Flessibilità**: funziona con linee di qualsiasi angolazione
-- **Organizzazione**: gestione automatica dei layer per i punti di riferimento
 
 ## 📝 Esempio di Utilizzo
 
