@@ -1,14 +1,18 @@
-# MULTIBREAKATPOINT for AutoCAD 
+# MULTIBREAKATPOINT - V2.0 for AutoCAD 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![AutoCAD](https://img.shields.io/badge/AutoCAD-000000?style=flat&logo=autodesk&logoColor=white)
-![Last Commit](https://img.shields.io/badge/last%20commit-Gen%202025-brightgreen)
+![Last Commit](https://img.shields.io/badge/last%20commit-November%202024-brightgreen)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen)
 
-> Un'utility AutoCAD che estende il comando nativo `_BREAKATPOINT` per dividere linee in multipli segmenti usando linee di intersezione
+> Un'utility AutoCAD che estende il comando nativo `_BREAK` per dividere linee in multipli segmenti usando punti di intersezione, con supporto per qualsiasi angolazione
+
+
+
+![MULTIBREAK in azione](./img/Qualsiasi_Angolo.jpg)
 
 ## 💡 Vantaggi rispetto a _BREAKATPOINT
 
-MULTIBREAKATPOINT è un'evoluzione avanzata del comando nativo AutoCAD `_BREAKATPOINT`:
+MULTIBREAK è un'evoluzione avanzata del comando nativo AutoCAD `_BREAKATPOINT`:
 
 - **_BREAKATPOINT**: richiede di lanciare il comando per ogni singolo punto di divisione
 - **MULTIBREAKATPOINT**: permette di dividere una linea in più punti con una singola esecuzione del comando
@@ -20,12 +24,20 @@ Questo si traduce in:
 
 ## 🚀 Caratteristiche Principali
 
-- Divide linee orizzontali o verticali in più segmenti
-- Crea automaticamente punti di riferimento
-- Gestione automatica dei layer
+- Divide linee con qualsiasi angolazione in più segmenti con un singolo comando
 - Supporto completo per lo snap ad intersezione
+- Creazione automatica di punti di riferimento su layer dedicato
+- Gestione automatica dei layer
 - Interfaccia utente intuitiva
-- Esecuzione multipla con un singolo comando
+- Esecuzione multipla senza dover rilanciare il comando
+
+## ⚡ Vantaggi nel Workflow
+
+- **Efficienza**: divide una linea in più punti con una singola esecuzione del comando
+- **Velocità**: riduce significativamente i tempi di esecuzione rispetto all'uso di comandi multipli
+- **Precisione**: supporto completo per snap ad intersezione e punti di riferimento
+- **Flessibilità**: funziona con linee di qualsiasi angolazione
+- **Organizzazione**: gestione automatica dei layer per i punti di riferimento
 
 ## 📋 Prerequisiti
 
@@ -41,34 +53,56 @@ Questo si traduce in:
 
 Per il caricamento automatico, copia il file nella cartella di supporto di AutoCAD.
 
-## 🔨 Utilizzo
+## ⚡ Vantaggi nel Workflow
 
-```lisp
-Command: MULTIBREAKATPOINT
-Seleziona tipo (Orizzontale/Verticale): H
-Seleziona la linea da dividere:
-Seleziona i punti di intersezione...
-```
+- **Efficienza**: divide una linea in più punti con una singola esecuzione del comando
+- **Velocità**: riduce significativamente i tempi di esecuzione rispetto all'uso di comandi multipli
+- **Precisione**: supporto completo per snap ad intersezione e punti di riferimento
+- **Flessibilità**: funziona con linee di qualsiasi angolazione
+- **Organizzazione**: gestione automatica dei layer per i punti di riferimento
 
-Per istruzioni dettagliate, consulta la [documentazione completa](./multibreak-documentation.md).
-
-## 📝 Esempio
+## 📝 Esempio di Utilizzo
 
 ```
-Prima:     |    |    |
-     ------+----+----+------
-           |    |    |
+Prima:        \     |     /
+               \    |    /
+                \   |   /
+                 \  |  /
+                  \ | /
+                   \|/
 
-Dopo:      |    |    |
-     ------+----+----+------
-           |    |    |
+Dopo:          \    |    /
+               -\   |   /-
+                -\  |  /-
+                 -\ | /-
+                  -\|/-
 
 (Tutti i segmenti creati con un singolo comando!)
 ```
 
-![MULTIBREAK in azione](./img/verticale.jpg)
+```mermaid
+graph TD
+subgraph VERSIONE 2.0
+AA[Avvio comando] --> CC[Seleziona linea]
+CC --> DD[Seleziona punto intersezione]
+DD -->|Altro punto| DD
+DD -->|INVIO| EE[Fine]
+end
 
-![MULTIBREAK in azione](./img/intersezione_vert.jpg)
+subgraph VERSIONE 1.0
+A[Avvio comando] --> B{Scegli tipo linea}
+B -->|Orizzontale| C1[Seleziona linea orizzontale]
+B -->|Verticale| C2[Seleziona linea verticale]
+C1 --> D1[Seleziona punto intersezione]
+C2 --> D1
+D1 -->|Altro punto| D1
+D1 -->|INVIO| E[Fine]
+end
+classDef default fill:#f0f0f0,stroke:#333,stroke-width:2px;
+classDef choice fill:#ffd700,stroke:#333,stroke-width:2px;
+```
+
+
 
 
 
@@ -83,8 +117,8 @@ Le pull request sono benvenute. Per modifiche importanti, apri prima un issue pe
 ## 👤 Autore
 
 - **Antonio Demarcus**
-- Data di rilascio: Gennaio 2025
-- Versione: 1.0
+- Data di rilascio: 14 Gennaio 2025
+- Versione: 2.0
 
 ## 📞 Supporto
 
