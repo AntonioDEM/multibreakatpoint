@@ -8,7 +8,7 @@
 
 ## 💡 Vantaggi rispetto a _BREAKATPOINT
 
-MULTIBREAK è un'evoluzione avanzata del comando nativo AutoCAD `_BREAKATPOINT`:
+MULTIBREAKATPOINT è un'evoluzione avanzata del comando nativo AutoCAD `_BREAKATPOINT`:
 
 - **_BREAKATPOINT**: richiede di lanciare il comando per ogni singolo punto di divisione
 - **MULTIBREAKATPOINT**: permette di dividere una linea in più punti con una singola esecuzione del comando
@@ -44,7 +44,7 @@ Per il caricamento automatico, copia il file nella cartella di supporto di AutoC
 ## 🔨 Utilizzo
 
 ```lisp
-Command: MULTIBREAK
+Command: MULTIBREAKATPOINT
 Seleziona tipo (Orizzontale/Verticale): H
 Seleziona la linea da dividere:
 Seleziona i punti di intersezione...
