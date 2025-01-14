@@ -4,7 +4,7 @@
 ![Last Commit](https://img.shields.io/badge/last%20commit-November%202024-brightgreen)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen)
 
-> Un'utility AutoCAD che estende il comando nativo `_BREAK` per dividere linee in multipli segmenti usando punti di intersezione, con supporto per qualsiasi angolazione
+> Un'utility AutoCAD che estende il comando nativo `_BREAK` per dividere linee e polilinee in multipli segmenti usando punti di intersezione, con supporto per qualsiasi angolazione
 
 
 
