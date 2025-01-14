@@ -1,14 +1,14 @@
 ;;;=========================================================================
 ;;; MULTIBREAKATPOINT Command
 ;;; Autore: Antonio Demarcus
-;;; Version: 1.0
-;;; Data: 25/11/2024
+;;; Version: 2.0
+;;; Data: 14/01/2025
 ;;; 
-;;; Comando per dividere una linea (orizzontale o verticale) 
-;;; in più punti usando le intersezioni
+;;; Comando per dividere una linea che interseca un altra linea o piu linee con qualsiasi angolazione 
+;;; e in più punti usando le intersezioni
 ;;;=========================================================================
 
-(defun C:multibreakatpoint ( / ss pt error oldos mainline lastent choice)
+(defun C:multibreakatpoint ( / ss pt error oldos mainline lastent)
   ; Gestione errori
   (setq error *error*)
   (defun *error* (msg)
@@ -27,32 +27,24 @@
   ; Salva layer corrente
   (setq oldlayer (getvar "CLAYER"))
   
-  ; Chiedi all'utente il tipo di linea
-  (initget "Orizzontale Verticale")
-  (setq choice (getkword "\nSeleziona il tipo di linea [Orizzontale/Verticale]: "))
-  
   ; Seleziona la linea da dividere
-  (if choice
+  (prompt "\nSeleziona la linea da dividere: ")
+  (if (setq mainline (entsel))
     (progn
-      (if (= choice "Orizzontale")
-        (prompt "\nSeleziona linea orizzontale da dividere con linee verticali: ")
-        (prompt "\nSeleziona linea verticale da dividere con linee orizzontali: ")
-      )
+      (setq lastent (car mainline))
       
-      (if (setq mainline (entsel))
-        (progn
-          (setq lastent (car mainline))
-          
-          ; Loop principale
-          (while (setq pt (getpoint "\nSeleziona punto di intersezione o INVIO per uscire: "))
-            ; Esegui il break
-            (command "_BREAK" lastent pt pt)
-            ; Aggiorna l'entità per il prossimo break
-            (setq lastent (entlast))
-            ; Inserisci punto di riferimento
-            (command "_POINT" pt)
-          )
-        )
+      ; Loop principale
+      (while (setq pt (getpoint "\nSeleziona punto di intersezione o INVIO per uscire: "))
+        ; Esegui il break
+        (command "_BREAK" lastent pt pt)
+        
+        ; Aggiorna l'entità per il prossimo break
+        (setq lastent (entlast))
+        
+        ; Inserisci punto di riferimento
+        (command "._LAYER" "S" "BREAK_POINTS" "")
+        (command "_POINT" pt)
+        (command "._LAYER" "S" oldlayer "")
       )
     )
   )
@@ -69,6 +61,6 @@
 ;;;=========================================================================
 (princ "\nComando multibreakatpoint caricato correttamente.")
 (princ "\nAutore: Antonio Demarcus")
-(princ "\nVersione: 1.0")
-(princ "\nData: 25/11/2024")
+(princ "\nVersione: 2.0")
+(princ "\nData: 14/01/2025")
 (princ)
