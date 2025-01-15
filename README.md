@@ -12,7 +12,7 @@
 
 ## 💡 Vantaggi rispetto a _BREAKATPOINT
 
-MULTIBREAK è un'evoluzione avanzata del comando nativo AutoCAD `_BREAKATPOINT`:
+MULTIBREAK è un'evoluzione avanzata del comando nativo AutoCAD `_BREAK`:
 
 - **_BREAKATPOINT**: richiede di lanciare il comando per ogni singolo punto di divisione
 - **MULTIBREAKATPOINT**: permette di dividere una linea in più punti con una singola esecuzione del comando
